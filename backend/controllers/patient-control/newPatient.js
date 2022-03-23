@@ -23,18 +23,19 @@ const createPatient = async (req, res, next) => {
     cnp,
     bloodType,
     gender,
+    age,
     confirm_password,
   } = req.body;
 
   let createdPatient;
   try {
-    const patients = await Patients.find().exec();
+    const patients = await Patient.find().exec();
     const VALID = patients.find((p) => p.email === email);
-
+    console.log(VALID)
     if (VALID || password !== confirm_password)
       // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
       return res.json({
-        message: "Name already used or the passwords do not match!",
+        message: "Email already used or the passwords do not match!",
       });
 
     // let hashedPassword;
@@ -46,7 +47,7 @@ const createPatient = async (req, res, next) => {
     //   })
     // }
 
-    createdPatient = new User({
+    createdPatient = new Patient({
       firstName,
       lastName,
       email,
@@ -54,9 +55,9 @@ const createPatient = async (req, res, next) => {
       cnp,
       bloodType,
       gender,
+      age,
       confirm_password,
     });
-
     await createdPatient.save();
   } catch (err) {
     res.status(500).json("Registration has failed!");
@@ -75,7 +76,7 @@ const createPatient = async (req, res, next) => {
   res.status(201).json({
     message: "New user added!",
     user: createdPatient,
-   // token: token,
+    // token: token,
   });
 };
 

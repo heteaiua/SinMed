@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const Patient = new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required:true },
