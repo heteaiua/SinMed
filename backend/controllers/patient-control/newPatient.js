@@ -30,13 +30,27 @@ const createPatient = async (req, res, next) => {
   let createdPatient;
   try {
     const patients = await Patient.find().exec();
-    const VALID = patients.find((p) => p.email === email);
-    console.log(VALID)
-    if (VALID || password !== confirm_password)
-      // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
+    const usedEmail = patients.find((p) => p.email === email);
+    const usedCNP = patients.find((p) => p.cnp === cnp);
+    console.log(usedEmail);
+    console.log(usedCNP);
+    if (usedCNP)
+      // se verifica daca cnp-ul introdus exista in baza de date
       return res.json({
-        message: "Email already used or the passwords do not match!",
+        message: " CNP already used! ",
       });
+
+    if (usedEmail)
+      // se verifica daca email-ul introdus exista in baza de date
+      return res.json({
+        message: "Email already used! ",
+      });
+      
+    if (password != confirm_password)
+    // se verifica daca cele 2 parole corespund
+    return res.json({
+      message: "Passwords do not match! ",
+    });
 
     // let hashedPassword;
     // try {
