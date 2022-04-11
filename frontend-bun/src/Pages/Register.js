@@ -3,18 +3,30 @@ import {Formik, Form, Field } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 
+
 function Register() {
   const initialValues={
-    username: "",
+    firstName: "",
+    lastName:"",
+    email: "",
     password:"",
-    confirmPassword: "",
+    cnp:"",
+    bloodType:"",
+    gender:"",
+    age:""
   }
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required(),
+    firstName: Yup.string().required(),
+    lastName: Yup.string().required(),
+    email: Yup.string().required(),
     password: Yup.string().min(5).max(25).required('Password is required'),
     passwordConfirmation: Yup.string()
-     .oneOf([Yup.ref('password'), null], 'Passwords must match')
+     .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+     cnp: Yup.string().required(),
+     bloodType: Yup.string().required(),
+     gender: Yup.string().required(),
+     age: Yup.string().required(),
   })
 
   const onSubmit = (data) => {
@@ -26,22 +38,39 @@ function Register() {
   return (
     <div>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-        <Form className="formContainer">
-          <label>Username: </label>
+        <Form className="registerFormContainer">
+          <label>First Name: </label>
           <Field 
-              id="username" 
-              name="username" 
-              placeholder="(Example Title)"/>
+              id="firstName" 
+              name="firstName"/>
+          <label>Last Name: </label>
+          <Field 
+              id="lastName" 
+              name="lastName"/>
           <label>Password: </label>
           <Field 
               id="password" 
-              name="password" 
-              placeholder="(Example Post)"/>
+              name="password" />
           <label>Confirm Password: </label>
           <Field 
               id="confirm_password" 
-              name="confirmPassword" 
-              placeholder="(Example Post)"/>
+              name="confirmPassword" />
+          <label>CNP: </label>
+          <Field 
+              id="cnp" 
+              name="cnp" />
+          <label>Blood Type: </label>
+          <Field 
+              id="bloodType" 
+              name="bloodtype" />
+          <label>Gender: </label>
+          <Field 
+              id="gender" 
+              name="gender" />
+          <label>Age: </label>
+          <Field 
+              id="age" 
+              name="age" />
 
         <button type="submit">Register</button>
         </Form>
