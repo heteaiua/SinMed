@@ -4,8 +4,8 @@ const mongoose = require('mongoose')
 //const cors = require('cors');
 
 const patientRoutes = require('./routes/patient-routes');
-
-
+const doctorRoutes = require('./routes/doctor-routes');
+const specializationRoutes = require('./routes/specialization-routes');
 
 mongoose.connect('mongodb+srv://sinus2:sinusdoi@cluster0.j4zlt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   {
@@ -28,5 +28,7 @@ app.use(bodyparser.urlencoded({limit: '400mb', extended: true}));
 
 
 app.use('/',patientRoutes)
+app.use('/doctors',doctorRoutes)
+app.use('/specialization', specializationRoutes);
 
 app.listen(8080);
