@@ -26,8 +26,8 @@ function Login() {
         <Form className='loginFormContainer'>
           <label>E-mail: </label>
           <Field
-            id="id"
-            name="id"/>
+            id="email"
+            name="email"/>
           <label>Password: </label>
           <Field
             id="password"

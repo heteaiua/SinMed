@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Formik, Form, Field } from "formik"
+import { useNavigate } from "react-router-dom"
 import * as Yup from "yup"
 import axios from "axios"
 
 
 function Register() {
+  const navigate = useNavigate();
+
   const initialValues={
     firstName: "",
     lastName:"",
@@ -23,15 +26,26 @@ function Register() {
     password: Yup.string().min(5).max(25).required('Password is required'),
     passwordConfirmation: Yup.string()
      .oneOf([Yup.ref('password'), null], 'Passwords must match'),
-     cnp: Yup.string().required(),
-     bloodType: Yup.string().required(),
-     gender: Yup.string().required(),
-     age: Yup.string().required(),
+    cnp: Yup.string().required(),
+    bloodType: Yup.string().required(),
+    gender: Yup.string().required(),
+    age: Yup.string().required(),
   })
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:8080/", data).then(()=>{
-        console.log("ok");
+    console.log(data);
+    axios.post("http://localhost:8080/", {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password:data.password,
+      cnp:data.cnp,
+      bloodType:data.bloodType,
+      gender:data.gender,
+      age:data.age
+    }).then(()=>{
+      console.log("ok");
+      navigate("/login");
     });
   }
 
@@ -55,6 +69,10 @@ function Register() {
           <Field 
               id="confirm_password" 
               name="confirmPassword" />
+              <label>Email: </label>
+          <Field 
+              id="email" 
+              name="email" />
           <label>CNP: </label>
           <Field 
               id="cnp" 
@@ -62,7 +80,7 @@ function Register() {
           <label>Blood Type: </label>
           <Field 
               id="bloodType" 
-              name="bloodtype" />
+              name="bloodType" />
           <label>Gender: </label>
           <Field 
               id="gender" 
