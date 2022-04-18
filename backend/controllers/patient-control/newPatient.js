@@ -15,6 +15,8 @@ const createPatient = async (req, res, next) => {
   //   });
   // }
 
+  console.log("body: ", req.body);
+
   const {
     firstName,
     lastName,
@@ -24,16 +26,16 @@ const createPatient = async (req, res, next) => {
     bloodType,
     gender,
     age,
-    confirm_password,
+    passwordConfirmation,
   } = req.body;
+
+  console.log("FName: ", firstName);
 
   let createdPatient;
   try {
     const patients = await Patient.find().exec();
     const usedEmail = patients.find((p) => p.email === email);
     const usedCNP = patients.find((p) => p.cnp === cnp);
-    console.log(usedEmail);
-    console.log(usedCNP);
     if (usedCNP)
       // se verifica daca cnp-ul introdus exista in baza de date
       return res.json({
@@ -46,7 +48,7 @@ const createPatient = async (req, res, next) => {
         message: "Email already used! ",
       });
       
-    if (password != confirm_password)
+    if (password !== passwordConfirmation)
     // se verifica daca cele 2 parole corespund
     return res.json({
       message: "Passwords do not match! ",
@@ -70,7 +72,7 @@ const createPatient = async (req, res, next) => {
       bloodType,
       gender,
       age,
-      confirm_password,
+      passwordConfirmation,
     });
     await createdPatient.save();
   } catch (err) {
