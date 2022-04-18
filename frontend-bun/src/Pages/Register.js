@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Formik, Form, Field } from "formik"
+import {Formik, Form, Field, ErrorMessage } from "formik"
 import { useNavigate } from "react-router-dom"
 import * as Yup from "yup"
 import axios from "axios"
@@ -13,6 +13,7 @@ function Register() {
     lastName:"",
     email: "",
     password:"",
+    passwordConfirmation: "",
     cnp:"",
     bloodType:"",
     gender:"",
@@ -39,6 +40,7 @@ function Register() {
       lastName: data.lastName,
       email: data.email,
       password:data.password,
+      passwordConfirmation: data.passwordConfirmation,
       cnp:data.cnp,
       bloodType:data.bloodType,
       gender:data.gender,
@@ -50,10 +52,11 @@ function Register() {
   }
 
   return (
-    <div>
+    <div >
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form className="registerFormContainer">
           <label>First Name: </label>
+          <ErrorMessage name="firstName" component="span"/>
           <Field 
               id="firstName" 
               name="firstName"/>
@@ -67,8 +70,8 @@ function Register() {
               name="password" />
           <label>Confirm Password: </label>
           <Field 
-              id="confirm_password" 
-              name="confirmPassword" />
+              id="passwordConfirmation" 
+              name="passwordConfirmation" />
               <label>Email: </label>
           <Field 
               id="email" 

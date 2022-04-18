@@ -1,11 +1,13 @@
 const express = require('express')
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose')
-//const cors = require('cors');
+const cors = require('cors');
 
 const patientRoutes = require('./routes/patient-routes');
 const doctorRoutes = require('./routes/doctor-routes');
 const specializationRoutes = require('./routes/specialization-routes');
+
+//mongodb+srv://sinus2:sinusdoi@cluster0.j4zlt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 mongoose.connect('mongodb+srv://sinus2:sinusdoi@cluster0.j4zlt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   {
@@ -22,7 +24,7 @@ mongoose.connect('mongodb+srv://sinus2:sinusdoi@cluster0.j4zlt.mongodb.net/myFir
 
 const app = express();
 
-//app.use(cors({origin: true, credentials: true}));
+app.use(cors({origin: true, credentials: true}));
 app.use(bodyparser.json({limit: '400mb'}));
 app.use(bodyparser.urlencoded({limit: '400mb', extended: true}));
 
