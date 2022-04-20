@@ -4,17 +4,22 @@ import Login from './Pages/Login'
 import Register from './Pages/Register'
 import Title from './Components/Title'
 import Menu from './Components/Menu'
+import Sidebar from './Components/Sidebar';
+import Home from './Pages/Home';
+import Specializations from './Pages/Specializations';
 
 function App(){
     return(
         <div className='App'>
-            <Title/>
-            <Menu/>
+            
             <Router>
+                <Sidebar />
                 <Routes>
-                    {/* <Route path='/' element={<Home/>}/> */}
+                     <Route path='/Home' element={<Home/>}/> 
+                     <Route path='/Specializations' element={<Specializations/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/register' element={<Register/>}/>
+                    
                 </Routes>
             </Router>
         </div>
