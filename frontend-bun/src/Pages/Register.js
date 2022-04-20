@@ -21,16 +21,16 @@ function Register() {
   }
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required(),
-    lastName: Yup.string().required(),
-    email: Yup.string().required(),
-    password: Yup.string().min(5).max(25).required('Password is required'),
+    firstName: Yup.string().required("First Name is required"),
+    lastName: Yup.string().required("Last Name is required"),
+    email: Yup.string().required("Email is required"),
+    password: Yup.string().min(5).max(25).required("Password is required"),
     passwordConfirmation: Yup.string()
-     .oneOf([Yup.ref('password'), null], 'Passwords must match'),
-    cnp: Yup.string().required(),
-    bloodType: Yup.string().required(),
-    gender: Yup.string().required(),
-    age: Yup.string().required(),
+     .oneOf([Yup.ref('password'), null], "Passwords must match"),
+    cnp: Yup.string().required("CNP is required"),
+    bloodType: Yup.string().required("Blood Type is required"),
+    gender: Yup.string().required("Gender is required"),
+    age: Yup.string().required("Age is required"),
   })
 
   const onSubmit = (data) => {
@@ -55,44 +55,71 @@ function Register() {
     <div >
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form className="registerFormContainer">
-          <label>First Name: </label>
-          <ErrorMessage name="firstName" component="span"/>
-          <Field 
-              id="firstName" 
-              name="firstName"/>
-          <label>Last Name: </label>
-          <Field 
-              id="lastName" 
-              name="lastName"/>
-          <label>Password: </label>
-          <Field 
-              id="password" 
-              name="password" />
-          <label>Confirm Password: </label>
-          <Field 
-              id="passwordConfirmation" 
-              name="passwordConfirmation" />
-              <label>Email: </label>
-          <Field 
-              id="email" 
-              name="email" />
-          <label>CNP: </label>
-          <Field 
-              id="cnp" 
-              name="cnp" />
-          <label>Blood Type: </label>
-          <Field 
-              id="bloodType" 
-              name="bloodType" />
-          <label>Gender: </label>
-          <Field 
-              id="gender" 
-              name="gender" />
-          <label>Age: </label>
-          <Field 
-              id="age" 
-              name="age" />
-
+          <div>
+            <label>First Name: </label>
+            <ErrorMessage name="firstName" component="div"/>
+            <Field 
+                id="firstName" 
+                name="firstName"/>
+          </div>
+          <div>
+            <label>Last Name: </label>
+            <ErrorMessage name="lastName" component="div"/>
+            <Field
+                id="lastName" 
+                name="lastName"/>
+          </div>
+          <div>
+            <label>Password: </label>
+            <ErrorMessage name="password" component="div"/>
+            <Field 
+                id="password" 
+                type="password"
+                name="password" />
+          </div>
+          <div>
+            <label>Confirm Password: </label>
+            <ErrorMessage name="passwordConfirmation" component="div"/>
+            <Field 
+                id="passwordConfirmation" 
+                type="password"
+                name="passwordConfirmation" />
+          </div>
+          <div>
+          <label>Email: </label>
+            <ErrorMessage name="email" component="div"/>
+            <Field 
+                id="email" 
+                name="email" />
+          </div>
+          <div>
+            <label>CNP: </label>
+            <ErrorMessage name="cnp" component="div"/>
+            <Field 
+                id="cnp" 
+                name="cnp" />
+          </div>
+          <div>
+            <label>Blood Type: </label>
+            <ErrorMessage name="bloodType" component="div"/>
+            <Field 
+                id="bloodType" 
+                name="bloodType" />
+          </div>
+          <div>
+            <label>Gender: </label>
+            <ErrorMessage name="gender" component="div"/>
+            <Field 
+                id="gender" 
+                name="gender" />
+          </div>
+          <div>
+            <label>Age: </label>
+            <ErrorMessage name="age" component="div"/>
+            <Field 
+                id="age" 
+                name="age" />
+          </div>
         <button type="submit">Register</button>
         </Form>
       </Formik>
