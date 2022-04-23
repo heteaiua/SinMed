@@ -1,0 +1,31 @@
+.login{
+    background-color: white;
+    border-radius: 10px;
+    width: 550px;
+    margin: 20px auto;
+    padding: 20px;
+    /* height: 600px; */
+}
+
+.form-body__login{
+    text-align: left;
+    padding: 20px 10px;
+}
+
+.form-body__login > *{
+    padding: 5px;
+}
+
+.form__label__login{
+    width: 200px;
+    text-align: left;
+    display: inline-block;
+}
+
+.form__input__login{
+    width: 300px;
+}
+
+.form-footer__login{
+    text-align: center;
+}
