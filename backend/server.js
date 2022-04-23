@@ -31,6 +31,6 @@ app.use(bodyparser.urlencoded({limit: '400mb', extended: true}));
 
 app.use('/',patientRoutes)
 app.use('/doctors',doctorRoutes)
-app.use('/specialization', specializationRoutes);
+app.use('/specializations', specializationRoutes);
 
 app.listen(8080);

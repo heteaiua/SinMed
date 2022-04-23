@@ -1,11 +1,11 @@
-const express = require('express');
+const express = require("express");
 
-const createSpecialization = require('../controllers/specialization-control/newSpecialization');
-//const getDoctors = require('../controllers/patient-control/getAllPatients'); not ready
+const createSpecialization = require("../controllers/specialization-control/newSpecialization");
+const getSpecializations = require("../controllers/specialization-control/getAllSpecializations");
 
 const router = express.Router();
 
-router.post('/', createSpecialization);
-//router.get('/', getPatients);
+router.post("/", createSpecialization);
+router.get("/", getSpecializations);
 
 module.exports = router;

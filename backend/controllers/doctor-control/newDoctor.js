@@ -25,7 +25,6 @@ const createDoctor = async (req, res, next) => {
     rating,
     gender,
     age,
-    confirm_password,
   } = req.body;
 
   let createdDoctor;
@@ -47,11 +46,11 @@ const createDoctor = async (req, res, next) => {
         message: "Email already used! ",
       });
       
-    if (password != confirm_password)
-    // se verifica daca cele 2 parole corespund
-    return res.json({
-      message: "Passwords do not match! ",
-    });
+    // if (password != confirm_password)
+    // // se verifica daca cele 2 parole corespund
+    // return res.json({
+    //   message: "Passwords do not match! ",
+    // });
 
     // let hashedPassword;
     // try {
@@ -72,7 +71,6 @@ const createDoctor = async (req, res, next) => {
       rating,
       gender,
       age,
-      confirm_password,
     });
     await createdDoctor.save();
   } catch (err) {
