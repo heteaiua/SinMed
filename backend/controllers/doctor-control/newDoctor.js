@@ -29,31 +29,28 @@ const createDoctor = async (req, res, next) => {
 
   let createdDoctor;
   try {
-
     const doctors = await Doctor.find().exec();
 
     const specializations = await Specialization.find().exec();
-    const specialization = specializations.filter(s => {
-        return s.id === idSpecialization;
-    })
-    if (specialization.length === 0){
-        console.log(specialization)
-        return res.json({
-            message: " Invalid specialization!"
-        });
-      }
-    
+    let specialization = specializations.filter((s) => {
+      return s.id === idSpecialization;
+    });
+    if (specialization.length === 0) {
+      console.log(specialization);
+      return res.json({
+        message: " Invalid specialization!",
+      });
+    }
 
     const usedEmail = doctors.find((p) => p.email === email);
     const usedCNP = doctors.find((p) => p.cnp === cnp);
-    console.log(usedEmail);
-    console.log(usedCNP);
     
-    // if (!specialization)
-    // // se verifica daca cnp-ul introdus exista in baza de date
-    // return res.json({
-    //   message: " Invalid specialization! ",
-    // });
+
+    if (!specialization)
+    // se verifica daca cnp-ul introdus exista in baza de date
+    return res.json({
+      message: " Invalid specialization! ",
+    });
 
     if (usedCNP)
       // se verifica daca cnp-ul introdus exista in baza de date
@@ -66,7 +63,7 @@ const createDoctor = async (req, res, next) => {
       return res.json({
         message: "Email already used! ",
       });
-      
+
     // if (password != confirm_password)
     // // se verifica daca cele 2 parole corespund
     // return res.json({
@@ -81,9 +78,7 @@ const createDoctor = async (req, res, next) => {
     //     error: "Could not create user."
     //   })
     // }
- 
 
- 
     createdDoctor = new Doctor({
       idSpecialization,
       firstName,
@@ -94,22 +89,31 @@ const createDoctor = async (req, res, next) => {
       gender,
       age,
     });
-    console.log(createdDoctor)
     await createdDoctor.save();
   } catch (err) {
     res.status(500).json("Registration has failed!");
   }
 
-  // let token;
-  // try {
-  //   token = jwt.sign(
-  //     { userID: createdPatient.id, name: createdPatient.name },
-  //     "super_secret",
-  //     { expiresIn: "1h" }
-  //   );
-  // } catch (err) {
-  //   return res.status(500).json("Failed registration!");
-  // }
+  const specializations = await Specialization.find().exec();
+  let specialization = specializations.filter((s) => {
+    return s.id === idSpecialization;
+  });
+  if (specialization.length === 0) {
+    console.log(specialization);
+    return res.json({
+      message: " Invalid specialization!",
+    });
+  }
+
+  console.log(specialization[0].doctors);
+  try {
+    console.log(specialization)
+    specialization[0].doctors.push(createdDoctor.id);
+    await specialization[0].save();
+  } catch (err) {
+    res.status(500).json("Id push has failed!");
+  }
+
   res.json({
     message: "New doctor added!",
     doctor: createdDoctor,
