@@ -14,7 +14,7 @@ const showAllDoctors = async (req, res, next) => {
   }
   res.json({
     message: "Doctors: ",
-    doctors: doctors.map((doctor) => doctor.toObject({ getters: true })),
+    doctors: doctors
   });
 };
 
