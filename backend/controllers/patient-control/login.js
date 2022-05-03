@@ -1,5 +1,7 @@
 //const bcrypt = require('bcryptjs')
 //const jwt = require('jsonwebtoken')
+
+//linie noua ca sa pun iar pe git hehe
 const Patient = require("../../models/patient");
 
 const loginPatient = async (req, res, next) => {
