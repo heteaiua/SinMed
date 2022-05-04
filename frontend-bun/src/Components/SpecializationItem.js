@@ -1,7 +1,7 @@
 import React from "react";
 
-import Avatar from "./Avatar";
-import Card from "./Card";
+import Avatar from "../GeneralComponents/Avatar";
+import Card from "../GeneralComponents/Card";
 import "./SpecializationItem.css";
 
 const SpecializationItem = (props) => {

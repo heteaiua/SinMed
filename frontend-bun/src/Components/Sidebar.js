@@ -63,7 +63,7 @@ const Sidebar = () => {
               color: "lightblue",
             }}
           >
-            SinMed
+            <Link to ="/Home" >SinMed</Link>
           </h1>
           <div className="login-button">
             <Button to="/login">Login</Button>

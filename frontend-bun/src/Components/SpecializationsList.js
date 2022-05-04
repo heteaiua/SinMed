@@ -1,6 +1,6 @@
 import React from "react";
 
-import Card from "./Card";
+import Card from "../GeneralComponents/Card";
 import SpecializationItem from "./SpecializationItem";
 import "./SpecializationsList.css";
 

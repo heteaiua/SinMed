@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Card from "./Card";
-import Avatar from "./Avatar";
+import Card from "../GeneralComponents/Card";
+import Avatar from "../GeneralComponents/Avatar";
 import Button from "./Button";
 import "./DoctorItem.css";
 
