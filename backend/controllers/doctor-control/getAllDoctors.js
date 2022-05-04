@@ -12,9 +12,19 @@ const showAllDoctors = async (req, res, next) => {
   } catch (err) {
     return res.json({ message: "Could not get doctors.", err: err });
   }
+
+  doctors.forEach((doctor) => {
+    let media = 0;
+    doctor.rating.forEach((rating) => {
+      media += rating;
+    });
+    media = media / doctor.rating.length;
+    doctor.rating = media;
+  });
+
   res.json({
     message: "Doctors: ",
-    doctors: doctors
+    doctors: doctors,
   });
 };
 
