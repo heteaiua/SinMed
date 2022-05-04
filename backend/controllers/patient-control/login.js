@@ -32,7 +32,7 @@ const loginPatient = async (req, res, next) => {
       }); //mesaj de eroare , nu se mai executa functia in continuare
   } catch (error) {
     return res.json({
-      error,
+      error
     });
   }
 
@@ -57,6 +57,10 @@ const loginPatient = async (req, res, next) => {
   //   return res.status(500).json("Login failed!")
   // }
   // existingPatient.loggedIn = true;
+  
+    existingPatient.loggedIn = true;
+    await existingPatient.save();
+ 
 
   res.json({
     message: "Welcome back, " + existingPatient.firstName + "!",
