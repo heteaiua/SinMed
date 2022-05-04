@@ -8,6 +8,8 @@ import Sidebar from "./Components/Sidebar";
 import Home from "./Pages/Home";
 import Specializations from "./Pages/Specializations";
 import Doctors from "./Pages/Doctors";
+
+import Appointments from "./Pages/Appointments"
 import Contact from "./Pages/Contact";
 
 function App() {
@@ -21,7 +23,11 @@ function App() {
           <Route path="/Doctors" element={<Doctors />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
+          <Route path="/Appointments" element={<Appointments />}/>
+=======
           <Route path="/contact" element={<Contact />} />
+
         </Routes>
       </Router>
     </div>
