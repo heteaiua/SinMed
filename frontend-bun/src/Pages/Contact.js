@@ -5,12 +5,12 @@ import "./Contact.css";
 const Contact = (props) => {
   return (
     <>
-      <div class="titleContact">
+      <div className="titleContact">
         <h1>SinMed Medical Clinic</h1>
         <h4>Contact Us</h4>
       </div>
       <Card className="card">
-        <div class="orarContact">
+        <div className="orarContact">
           <h2>Orar</h2>
 
           <h4>Luni - Vineri - 07:00-20:00</h4>

@@ -27,6 +27,10 @@
   background-color: skyblue;
 }
 
+.doctor-item__rating{
+  color: #ff0055;
+}
+
 .doctor-item__image {
   width: 3rem;
   height: 3rem;

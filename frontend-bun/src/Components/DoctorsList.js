@@ -5,7 +5,7 @@ import Card from "./Card";
 import "./DoctorsList.css";
 
 const DoctorsList = (props) => {
-//   console.log(props.items.length);
+  //   console.log(props.items.length);
   if (props.items.length === 0) {
     return (
       <div className="center">
@@ -21,10 +21,10 @@ const DoctorsList = (props) => {
         return (
           <DoctorItem
             key={doctor.id}
-            id={doctor.id}
+            id={doctor._id}
             name={doctor.lastName}
             image={doctor.image} //add image
-            //add description?
+            rating={doctor.rating}
           />
         );
       })}
