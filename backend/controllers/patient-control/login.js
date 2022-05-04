@@ -15,17 +15,14 @@ const loginPatient = async (req, res, next) => {
       email: email,
     }); //transformarea continutului din baza de date intr-un array de obiecte
 
-    if (!existingPatient)
+    if (!existingPatient) {
+      console.log("nu e bn");
       // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
-      return res.status(401).json({
-        message: "No account found .",
-      }); //mesaj de eroare , nu se mai executa functia in continuare
+      return res.status(401).json("No account found");
+    } //mesaj de eroare , nu se mai executa functia in continuare
   } catch (error) {
-    return res.json({
-      error,
-    });
+    return res.status(500).json("Login has failed!");
   }
-
 
   try {
     if (existingPatient.password !== password)
