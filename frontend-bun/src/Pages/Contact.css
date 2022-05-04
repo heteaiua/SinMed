@@ -1,0 +1,16 @@
+.titleContact {
+  color: whitesmoke;
+  position: relative;
+  text-align: center;
+}
+.orarContact {
+  color: rgb(30, 29, 29);
+  text-decoration: dashed;
+  text-overflow: unset;
+  position: relative;
+  text-align: center;
+  align-self: center;
+}
+.card {
+  background: rgba(243, 244, 245, 0.5);
+}
