@@ -10,6 +10,7 @@ const Patient = new mongoose.Schema({
     appointments:{type: Array, default:[]},
     gender: { type: String, required: true },
     age: { type: Number, required: true },
+    loggedIn: { type: Boolean, required: true, default: false },
     dateAdded: { type: Date, default: Date.now() },
 });
 
