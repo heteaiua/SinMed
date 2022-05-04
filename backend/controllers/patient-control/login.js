@@ -16,8 +16,7 @@ const loginPatient = async (req, res, next) => {
     }); //transformarea continutului din baza de date intr-un array de obiecte
 
     if (!existingPatient) {
-      console.log("nu e bn");
-      // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
+    // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
       return res.status(401).json("No account found");
     } //mesaj de eroare , nu se mai executa functia in continuare
   } catch (error) {
@@ -27,11 +26,11 @@ const loginPatient = async (req, res, next) => {
   try {
     if (existingPatient.password !== password)
       // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
-      return res.json({
+      return res.status(401).json({
         message: "Wrong password! ",
       }); //mesaj de eroare , nu se mai executa functia in continuare
   } catch (error) {
-    return res.json({
+    return res.status(401).json({
       error
     });
   }
