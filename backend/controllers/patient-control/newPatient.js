@@ -15,7 +15,7 @@ const createPatient = async (req, res, next) => {
   //   });
   // }
 
-  console.log("body: ", req.body);
+  // console.log("body     : ", req.body);
 
   const {
     firstName,
@@ -29,7 +29,7 @@ const createPatient = async (req, res, next) => {
     passwordConfirmation,
   } = req.body;
 
-  console.log("FName: ", firstName);
+  // console.log("FName: ", firstName);
 
   let createdPatient;
   try {

@@ -17,27 +17,49 @@ function Login() {
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:8080/", data).then(() => {
-      console.log("ok");
-    });
+    axios
+      .post("http://localhost:8080/login", {
+        email: data.email,
+        password: data.password,
+      })
+      .then(() => {
+        console.log("ok");
+      });
   };
 
+  // return (
+  //   <form className="login" onSubmit={onSubmit} validationSchema={validationSchema}>
+  //   <div className="form-body">
+  //     <div className="email">
+  //       <label className="form__label">Email</label>
+  //       <input className="form__input" />
+  //     </div>
+  //     <div className="password">
+  //       <label className="form__label">Password</label>
+  //       <input className="form__input" />
+  //     </div>
+  //     <div className="form-footer">
+  //       <Button type="submit">Login</Button>
+  //     </div>
+  //   </div>
+  //   </form>
+  // );
   return (
-    <form className="login" onSubmit={onSubmit}>
-    <div className="form-body">
-      <div className="email">
-        <label className="form__label">Email</label>
-        <input className="form__input" />
-      </div>
-      <div className="password">
-        <label className="form__label">Password</label>
-        <input className="form__input" />
-      </div>
-      <div className="form-footer">
-        <Button type="submit">Login</Button>
-      </div>
+    <div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        <Form className="loginFormContainer">
+          <label>Email:</label>
+          <Field id="email" name="email" />
+          <label>Password:</label>
+          <Field id="password" name="password" />
+          <Button type="submit">Login</Button>
+        </Form>
+      </Formik>
     </div>
-    </form>
   );
 }
 
