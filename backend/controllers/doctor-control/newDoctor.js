@@ -5,6 +5,7 @@
 //const bcrypt = require('bcryptjs')
 //const jwt = require('jsonwebtoken')
 const Doctor = require("../../models/doctor");
+const Specialization = require("../../models/specialization");
 
 const createDoctor = async (req, res, next) => {
   // const errors = validationResult(req);
@@ -22,7 +23,6 @@ const createDoctor = async (req, res, next) => {
     email,
     password,
     cnp,
-    rating,
     gender,
     age,
   } = req.body;
@@ -30,10 +30,28 @@ const createDoctor = async (req, res, next) => {
   let createdDoctor;
   try {
     const doctors = await Doctor.find().exec();
+
+    const specializations = await Specialization.find().exec();
+    let specialization = specializations.filter((s) => {
+      return s.id === idSpecialization;
+    });
+    if (specialization.length === 0) {
+      console.log(specialization);
+      return res.json({
+        message: " Invalid specialization!",
+      });
+    }
+
     const usedEmail = doctors.find((p) => p.email === email);
     const usedCNP = doctors.find((p) => p.cnp === cnp);
-    console.log(usedEmail);
-    console.log(usedCNP);
+    
+
+    if (!specialization)
+    // se verifica daca cnp-ul introdus exista in baza de date
+    return res.json({
+      message: " Invalid specialization! ",
+    });
+
     if (usedCNP)
       // se verifica daca cnp-ul introdus exista in baza de date
       return res.json({
@@ -45,7 +63,7 @@ const createDoctor = async (req, res, next) => {
       return res.json({
         message: "Email already used! ",
       });
-      
+
     // if (password != confirm_password)
     // // se verifica daca cele 2 parole corespund
     // return res.json({
@@ -68,7 +86,6 @@ const createDoctor = async (req, res, next) => {
       email,
       password,
       cnp,
-      rating,
       gender,
       age,
     });
@@ -77,19 +94,29 @@ const createDoctor = async (req, res, next) => {
     res.status(500).json("Registration has failed!");
   }
 
-  // let token;
-  // try {
-  //   token = jwt.sign(
-  //     { userID: createdPatient.id, name: createdPatient.name },
-  //     "super_secret",
-  //     { expiresIn: "1h" }
-  //   );
-  // } catch (err) {
-  //   return res.status(500).json("Failed registration!");
-  // }
-  res.status(201).json({
+  const specializations = await Specialization.find().exec();
+  let specialization = specializations.filter((s) => {
+    return s.id === idSpecialization;
+  });
+  if (specialization.length === 0) {
+    console.log(specialization);
+    return res.json({
+      message: " Invalid specialization!",
+    });
+  }
+
+  console.log(specialization[0].doctors);
+  try {
+    console.log(specialization)
+    specialization[0].doctors.push(createdDoctor.id);
+    await specialization[0].save();
+  } catch (err) {
+    res.status(500).json("Id push has failed!");
+  }
+
+  res.json({
     message: "New doctor added!",
-    doctors: createdDoctor,
+    doctor: createdDoctor,
     // token: token,
   });
 };

@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const mongoose = require('mongoose');
 
 const Patient = new mongoose.Schema({
@@ -6,6 +7,7 @@ const Patient = new mongoose.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     cnp: { type: String, required: true },
+    appointments:{type: Array, default:[]},
     gender: { type: String, required: true },
     age: { type: Number, required: true },
     dateAdded: { type: Date, default: Date.now() },
