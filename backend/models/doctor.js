@@ -11,7 +11,7 @@ const Doctor = new mongoose.Schema({
     cnp: { type: String, required: true },
     gender: { type: String, required: true },
     age: { type: Number, required: true },
-    rating: { type: Number,  default : 0 },
+    rating: { type: Array,   },
     dateAdded: { type: Date, default: Date.now() },
 });
 
