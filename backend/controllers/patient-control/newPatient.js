@@ -91,7 +91,7 @@ const createPatient = async (req, res, next) => {
   // }
   res.status(201).json({
     message: "New user added!",
-    user: createdPatient,
+    patient: createdPatient,
     // token: token,
   });
 };

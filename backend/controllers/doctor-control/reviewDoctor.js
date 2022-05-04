@@ -7,16 +7,16 @@ const reviewDoctor = async (req, res, next) => {
   try {
     doctor = await Doctor.findById(doctorId);
     if (!doctor)
-      return res.json({
+      return res.status(500).json({
         message: " No doctor found!",
       });
-    console.log(rating);
+    console.log(rating + "aa");
     doctor.rating.push(rating);
     await doctor.save();
   } catch (err) {
     return res.json({ message: "Could not leave rating doctor.", err: err });
   }
-  res.json({
+  res.status(200).json({
     message: "Doctor rated: ",
     doctor,
   });
