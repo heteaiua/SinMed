@@ -8,7 +8,7 @@ import Sidebar from "./Components/Sidebar";
 import Home from "./Pages/Home";
 import Specializations from "./Pages/Specializations";
 import Doctors from "./Pages/Doctors";
-import Appointment from "./Pages/Appointments"
+import Appointments from "./Pages/Appointments"
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="/Doctors" element={<Doctors />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/Appointments" element={<Appointment />}/>
+          <Route path="/Appointments" element={<Appointments />}/>
         </Routes>
       </Router>
     </div>
