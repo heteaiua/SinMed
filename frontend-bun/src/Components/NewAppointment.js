@@ -1,3 +1,11 @@
+// import React from "react";
+
+// const NewAppointment = () => {
+//   return <h1>Hello</h1>;
+// };
+
+// export default NewAppointment;
+
 import React, { Fragment, useState, useEffect } from "react";
 import {
   TimePicker,
