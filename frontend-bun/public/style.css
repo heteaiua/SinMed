@@ -1,6 +1,9 @@
 body {
     margin: 0;
-    background-image:url('background.jpg') ;
+    background-image:url('background2.jpg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2000px 1000px;
   }
 
   ul {

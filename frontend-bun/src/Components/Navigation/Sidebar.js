@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
+import { IconContext } from "react-icons/lib";
+
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
-import { IconContext } from "react-icons/lib";
-import Button from "./Button";
+import Button from "../Button";
 import "./Sidebar.css";
+import LogoImg from "../../assets/logo_file.png"
 
 const Nav = styled.div`
   background: #15171c;
@@ -16,6 +19,7 @@ const Nav = styled.div`
   justify-content: flex-start;
   align-items: center;
   width:100%;
+  
 `;
 
 const NavIcon = styled(Link)`
@@ -44,27 +48,48 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
+/*const SinmedLink = styled(Link)`
+  color: aqua;
+  font-size: x-large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  margin: auto;
+`;*/
+
+const Logo = styled.img`
+  margin: 30px;
+  max-width: 62px;
+  height: auto;
+  display: flex;
+`;
+
+
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+  
 
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
+        {/* here comes the main header  Navbar*/}
         <Nav>
           <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
-          <h1
+        
+          <h1 className="main-header"
             style={{
               textAlign: "left",
               marginLeft: "200px",
               color: "lightblue",
             }}
           >
-            <Link to ="/Home" >SinMed</Link>
+            <Logo src={LogoImg}></Logo>
+           {/* <SinmedLink to ="/Home">SinMed</SinmedLink>*/}
           </h1>
+
           <div className="login-button">
             <Button to="/login">Login</Button>
           </div>
@@ -72,6 +97,8 @@ const Sidebar = () => {
             <Button to="/register">Register</Button>
           </div>
         </Nav>
+
+         {/* here comes the proper sidebar */}
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
             <NavIcon to="#">
