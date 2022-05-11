@@ -8,6 +8,9 @@ import Sidebar from "./Components/Sidebar";
 import Home from "./Pages/Home";
 import Specializations from "./Pages/Specializations";
 import Doctors from "./Pages/Doctors";
+import NewAppointment from "./Components/NewAppointment";
+
+import Appointments from "./Pages/Appointments"
 import Contact from "./Pages/Contact";
 import AboutUs from "./Pages/AboutUs";
 
@@ -22,8 +25,12 @@ function App() {
           <Route path="/Doctors" element={<Doctors />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/Appointments/:doctorId" element={<NewAppointment />}/>
+          <Route path="/Appointments" element={<Appointments />}/>
           <Route path="/contact" element={<Contact />} />
           <Route path="/About_Us" element={<AboutUs />} />
+
+
         </Routes>
       </Router>
     </div>

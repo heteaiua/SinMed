@@ -9,24 +9,27 @@ const Patient = require("../../models/patient");
 const Appointment = require("../../models/appointment");
 
 const createAppointment = async (req, res, next) => {
-  const { idPatient, idDoctor, dateStart, dateEnd, roomNr } = req.body;
+  const idPatient = req.params.pid;
+  const idDoctor = req.params.did;
+
+  const { dateStart, dateEnd } = req.body;
 
   let createdAppointment;
   try {
     const doctors = await Doctor.find().exec();
     const patients = await Patient.find().exec();
 
-    const patient = patients.filter((s) => {
+    let patient = patients.filter((p) => {
       return p.id === idPatient;
     });
     if (patient.length === 0) {
       console.log(patient);
       return res.json({
-        message: " Invalid patient!",
+        message: "Invalid patient!",
       });
     }
 
-    const doctor = doctors.filter((s) => {
+    const doctor = doctors.filter((d) => {
       return d.id === idDoctor;
     });
     if (doctor.length === 0) {
@@ -49,21 +52,34 @@ const createAppointment = async (req, res, next) => {
           (dateEnd > a.dateStart && dateEnd < a.dateEnd)
       )
     )
-      return res.json({
-        message: " Doctor is busy!",
-      });
+    return res.json({
+      message: " Doctor is busy!",
+    });
 
     createdAppointment = new Appointment({
       idPatient,
       idDoctor,
       dateStart,
       dateEnd,
-      roomNr,
     });
     console.log(createdAppointment);
     await createdAppointment.save();
   } catch (err) {
-    res.status(500).json("Registration has failed!");
+    res.status(500).json(err+"     Registration has failed!");
+  }
+
+  try {
+    const patients = await Patient.find().exec();
+
+    let patient = patients.filter((p) => {
+      return p.id === idPatient;
+    });
+    console.log(patient);
+    patient[0].appointments.push(createdAppointment.id);
+    console.log(patient);
+    await patient[0].save();
+  } catch (err) {
+    res.status(500).json("Id push has failed!");
   }
 
   res.json({
