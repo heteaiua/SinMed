@@ -3,7 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .title {
-  color: whitesmoke;
+  color: #f2f2f2;
   position: relative;
   text-align: center;
 }
@@ -18,7 +18,7 @@ body {
 }
 
 h5 {
-  margin: 0px;
+  margin: 10px;
   font-size: 1.4em;
   font-weight: 700;
 }
@@ -28,26 +28,36 @@ p {
 }
 
 .center {
-  height: 100vh;
+  height: 42vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*
+.center1 {
+  height: 42vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
-.center1 {
-  height: 100vh;
-  width: 50%;
+.center2 {
+  height: 42vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
-
+*/
 /* End Non-Essential  */
 
 .property-card,
-.property-card1 {
+.property-card1,
+.property-card2 {
   height: 18em;
   width: 14em;
+  margin-right: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,7 +87,34 @@ p {
   -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: url("C:\Users\Ioana\Desktop\SinMed\SinMed App\Proiect\frontend-bun\public\staff.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.property-image1 {
+  height: 6em;
+  width: 14em;
+  padding: 1em 2em;
+  position: Absolute;
+  top: 0px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   background-image: url("C:\Users\Ioana\Desktop\SinMed\SinMed App\Proiect\frontend-bun\public\about_us.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.property-image2 {
+  height: 6em;
+  width: 14em;
+  padding: 1em 2em;
+  position: Absolute;
+  top: 0px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: url("C:\Users\Ioana\Desktop\SinMed\SinMed App\Proiect\frontend-bun\public\vision.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -96,36 +133,57 @@ p {
   padding: 0.5em 1em;
   text-align: center;
 }
-
-/* Social Icons */
-
-.property-social-icons {
-  width: 1em;
-  height: 1em;
-  background-color: black;
+.property-description1 {
+  background-color: #fafafc;
+  height: 12em;
+  width: 14em;
   position: absolute;
-  bottom: 1em;
-  left: 1em;
+  bottom: 0em;
   -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align: center;
+}
+.property-description2 {
+  background-color: #fafafc;
+  height: 12em;
+  width: 14em;
+  position: absolute;
+  bottom: 0em;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align: center;
 }
 
 /* Property Cards Hover States */
 
-.property-card .property-card1:hover .property-description {
+.property-card
+  .property-card1
+  .property-card2:hover
+  .property-description
+  .property-description1
+  .property-description2 {
   height: 0em;
   padding: 0px 1em;
 }
-.property-card .property-card1:hover .property-image {
+.property-card
+  .property-card1
+  .property-card2:hover
+  .property-image
+  .property-image1
+  .property-image2 {
   height: 18em;
 }
 
-.property-card .property-card1:hover .property-social-icons {
+.property-card .property-card1 .property-card2:hover {
   background-color: white;
 }
 
-.property-card .property-card1:hover .property-social-icons:hover {
+.property-card .property-card1,
+.property-card2:hover {
   background-color: blue;
   cursor: pointer;
 }
@@ -139,7 +197,36 @@ p {
   color: black;
   font-size: 1.2em;
 }
+.property-image-title1 {
+  text-align: center;
+  position: Relative;
+  top: 30%;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  color: black;
+  font-size: 1.2em;
+}
+.property-image-title2 {
+  text-align: center;
+  position: Relative;
+  top: 30%;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  color: black;
+  font-size: 1.2em;
+}
 
-.property-card .property-card1:hover .property-image-title {
+.property-card
+  .property-card1
+  .property-card2:hover
+  .property-image-title
+  .property-image-title1,
+.property-image-title2 {
   opacity: 1;
+}
+.despreNumbers {
+  position: relative;
+  text-align: center;
+  background-color: #ffffff;
+  opacity: 75%;
 }
