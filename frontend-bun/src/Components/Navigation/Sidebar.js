@@ -54,6 +54,7 @@ const SidebarWrap = styled.div`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: none;
   margin: auto;
+  ////////////
 `;*/
 
 const Logo = styled.img`
