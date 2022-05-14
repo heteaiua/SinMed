@@ -12,6 +12,7 @@ import NewAppointment from "./Components/NewAppointment";
 
 import Appointments from "./Pages/Appointments"
 import Contact from "./Pages/Contact";
+import AboutUs from "./Pages/AboutUs";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Route path="/Appointments/:doctorId" element={<NewAppointment />}/>
           <Route path="/Appointments" element={<Appointments />}/>
           <Route path="/contact" element={<Contact />} />
+          <Route path="/About_Us" element={<AboutUs />} />
+
 
         </Routes>
       </Router>

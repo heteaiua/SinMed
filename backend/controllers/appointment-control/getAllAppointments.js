@@ -10,7 +10,7 @@ const showAllAppointments = async (req, res, next) => {
         message: " No appointmends found!",
       });
   } catch (err) {
-    return res.json({ message: "Could not get appointments.", err: err });
+    return res.status(500).json({ message: "Could not get appointments.", err: err });
   }
   res.json({
     message: "Appointments: ",

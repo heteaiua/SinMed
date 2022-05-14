@@ -1,0 +1,232 @@
+body {
+  background-color: #f2f2f2;
+  -webkit-font-smoothing: antialiased;
+}
+.title {
+  color: #f2f2f2;
+  position: relative;
+  text-align: center;
+}
+.about {
+  color: whitesmoke;
+  text-align: center;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h5 {
+  margin: 10px;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+p {
+  font-size: 12px;
+}
+
+.center {
+  height: 42vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*
+.center1 {
+  height: 42vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.center2 {
+  height: 42vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+*/
+/* End Non-Essential  */
+
+.property-card,
+.property-card1,
+.property-card2 {
+  height: 18em;
+  width: 14em;
+  margin-right: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius: 16px;
+  overflow: hidden;
+  -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+/* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
+
+/* Top Half of card, image. */
+
+.property-image {
+  height: 6em;
+  width: 14em;
+  padding: 1em 2em;
+  position: Absolute;
+  top: 0px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: url("C:\Users\Ioana\Desktop\SinMed\SinMed App\Proiect\frontend-bun\public\staff.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.property-image1 {
+  height: 6em;
+  width: 14em;
+  padding: 1em 2em;
+  position: Absolute;
+  top: 0px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: url("C:\Users\Ioana\Desktop\SinMed\SinMed App\Proiect\frontend-bun\public\about_us.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.property-image2 {
+  height: 6em;
+  width: 14em;
+  padding: 1em 2em;
+  position: Absolute;
+  top: 0px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: url("C:\Users\Ioana\Desktop\SinMed\SinMed App\Proiect\frontend-bun\public\vision.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Bottom Card Section */
+
+.property-description {
+  background-color: #fafafc;
+  height: 12em;
+  width: 14em;
+  position: absolute;
+  bottom: 0em;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align: center;
+}
+.property-description1 {
+  background-color: #fafafc;
+  height: 12em;
+  width: 14em;
+  position: absolute;
+  bottom: 0em;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align: center;
+}
+.property-description2 {
+  background-color: #fafafc;
+  height: 12em;
+  width: 14em;
+  position: absolute;
+  bottom: 0em;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+/* Property Cards Hover States */
+
+.property-card
+  .property-card1
+  .property-card2:hover
+  .property-description
+  .property-description1
+  .property-description2 {
+  height: 0em;
+  padding: 0px 1em;
+}
+.property-card
+  .property-card1
+  .property-card2:hover
+  .property-image
+  .property-image1
+  .property-image2 {
+  height: 18em;
+}
+
+.property-card .property-card1 .property-card2:hover {
+  background-color: white;
+}
+
+.property-card .property-card1,
+.property-card2:hover {
+  background-color: blue;
+  cursor: pointer;
+}
+
+.property-image-title {
+  text-align: center;
+  position: Relative;
+  top: 30%;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  color: black;
+  font-size: 1.2em;
+}
+.property-image-title1 {
+  text-align: center;
+  position: Relative;
+  top: 30%;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  color: black;
+  font-size: 1.2em;
+}
+.property-image-title2 {
+  text-align: center;
+  position: Relative;
+  top: 30%;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  color: black;
+  font-size: 1.2em;
+}
+
+.property-card
+  .property-card1
+  .property-card2:hover
+  .property-image-title
+  .property-image-title1,
+.property-image-title2 {
+  opacity: 1;
+}
+.despreNumbers {
+  position: relative;
+  text-align: center;
+  background-color: #ffffff;
+  opacity: 75%;
+}

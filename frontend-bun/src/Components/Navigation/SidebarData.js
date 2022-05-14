@@ -5,14 +5,14 @@ import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
 
 export const SidebarData = [
-{
-	title: "Home",
-	path: "/Home",
-	icon: <AiIcons.AiFillHome />,
-	iconClosed: <RiIcons.RiArrowDownSFill />,
-	iconOpened: <RiIcons.RiArrowUpSFill />,
+  {
+    title: "Home",
+    path: "/Home",
+    icon: <AiIcons.AiFillHome />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
 
-	/*subNav: [
+    /*subNav: [
 	{
 		title: "Our Aim",
 		path: "/about-us/aim",
@@ -24,15 +24,15 @@ export const SidebarData = [
 		icon: <IoIcons.IoIosPaper />,
 	},
 	],*/
-},
-{
-	title: "Specializations",
-	path: "/Specializations",
-	icon: <IoIcons.IoMdSchool />,
-	//iconClosed: <RiIcons.RiArrowDownSFill />,
-	//iconOpened: <RiIcons.RiArrowUpSFill />,
+  },
+  {
+    title: "Specializations",
+    path: "/Specializations",
+    icon: <IoIcons.IoMdSchool />,
+    //iconClosed: <RiIcons.RiArrowDownSFill />,
+    //iconOpened: <RiIcons.RiArrowUpSFill />,
 
-	/*subNav: [
+    /*subNav: [
 	{
 		title: "Service 1",
 		path: "/services/services1",
@@ -51,25 +51,25 @@ export const SidebarData = [
 		icon: <IoIcons.IoIosPaper />,
 	},
 	],*/
-},
+  },
 
-{
-	title: "Doctors",
-	path: "/Doctors",
-	icon: <IoIcons.IoMdMedkit />,
-},
+  {
+    title: "Doctors",
+    path: "/Doctors",
+    icon: <IoIcons.IoMdMedkit />,
+  },
 
-{
-	title: "Appointments",
-	path: "/Appointments",
-	icon: <IoIcons.IoMdCheckmarkCircle />,
-},
+  {
+    title: "Appointments",
+    path: "/Appointments",
+    icon: <IoIcons.IoMdCheckmarkCircle />,
+  },
 
-{
-	title: "Prices",
-	path: "/Prices",
-	icon: <IoIcons.IoLogoUsd/>,
-},
+  {
+    title: "Prices",
+    path: "/Prices",
+    icon: <IoIcons.IoLogoUsd />,
+  },
 
 {
 	title: "About us",
