@@ -1,7 +1,7 @@
 import React from "react";
 
 import DoctorItem from "./DoctorItem";
-import Card from "./Card";
+import Card from "../GeneralComponents/Card";
 import "./DoctorsList.css";
 
 const DoctorsList = (props) => {

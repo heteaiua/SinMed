@@ -71,15 +71,16 @@ export const SidebarData = [
     icon: <IoIcons.IoLogoUsd />,
   },
 
-  {
-    title: "About us",
-    path: "/About_us",
-    icon: <IoIcons.IoIosBulb />,
-  },
+{
+	title: "About us",
+	path: "/About_us",
+	icon: <IoIcons.IoIosBulb />,
+},
 
-  {
-    title: "Contact",
-    path: "/Contact",
-    icon: <FaIcons.FaPhone />,
-  },
+{
+	title: "Contact",
+	path: "/Contact",
+	icon: <FaIcons.FaPhone />,
+},
+
 ];

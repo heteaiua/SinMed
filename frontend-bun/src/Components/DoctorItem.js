@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import Card from "./Card";
-import Avatar from "./Avatar";
+import Card from "../GeneralComponents/Card";
+import Avatar from "../GeneralComponents/Avatar";
 import Button from "./Button";
 import Modal from "./Modal";
 import "./DoctorItem.css";

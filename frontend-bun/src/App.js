@@ -4,7 +4,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Title from "./Components/Title";
 import Menu from "./Components/Menu";
-import Sidebar from "./Components/Sidebar";
+import Sidebar from "./Components/Navigation/Sidebar"
 import Home from "./Pages/Home";
 import Specializations from "./Pages/Specializations";
 import Doctors from "./Pages/Doctors";
