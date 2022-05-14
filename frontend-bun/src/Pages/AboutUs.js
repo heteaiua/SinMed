@@ -14,11 +14,7 @@ const AboutUs = (props) => {
       <div class="center">
         <div class="property-card">
           <a href="#">
-            <div class="property-image">
-              <div class="property-image-title">
-                <h5>SinMed</h5>
-              </div>
-            </div>
+            <div class="property-image"></div>
           </a>
           <div class="property-description">
             <h5> Valorile noastre </h5>
