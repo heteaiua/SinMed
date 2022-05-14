@@ -72,7 +72,7 @@ export const SidebarData = [
 },
 
 {
-	title: "About_us",
+	title: "About us",
 	path: "/About_us",
 	icon: <IoIcons.IoIosBulb />,
 },
