@@ -2,6 +2,8 @@ import React, { useCallback, useContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Title from "./Components/Title";
+import Menu from "./Components/Menu";
 import Sidebar from "./Components/Navigation/Sidebar";
 import Home from "./Pages/Home";
 import Specializations from "./Pages/Specializations";
@@ -14,11 +16,11 @@ import AboutUs from "./Pages/AboutUs";
 import AuthContext from "./Context/auth-context";
 import SpecializationItem from "./Components/SpecializationItem";
 import DoctorsListBySpecialization from "./Pages/DoctorsListBySpecialization";
+import Prices from "./Pages/Prices";
 
 function App() {
   const auth = useContext(AuthContext);
 
-  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [patientId, setPatientId] = useState("");
 
@@ -80,6 +82,7 @@ function App() {
   // );
   return (
     <div className="App">
+
       <AuthContext.Provider
         value={{
           isLoggedIn: isLoggedIn,
@@ -110,6 +113,22 @@ function App() {
           </Routes>
         </Router>
       </AuthContext.Provider>
+
+      <Router>
+        <Sidebar />
+        <Routes>
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Specializations" element={<Specializations />} />
+          <Route path="/Doctors" element={<Doctors />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/Appointments/:doctorId" element={<NewAppointment />} />
+          <Route path="/Appointments" element={<Appointments />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/About_Us" element={<AboutUs />} />
+          <Route path="/Prices" element={<Prices />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
