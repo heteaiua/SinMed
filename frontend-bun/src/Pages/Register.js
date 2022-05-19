@@ -38,24 +38,23 @@ function Register() {
     age: Yup.string().required("Age is required"),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-    axios
-      .post("http://localhost:8080/", {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        password: data.password,
-        passwordConfirmation: data.passwordConfirmation,
-        cnp: data.cnp,
-        bloodType: data.bloodType,
-        gender: data.gender,
-        age: data.age,
-      })
-      .then(() => {
-        console.log("ok");
-        navigate("/login");
-      });
+    const responseData = await axios.post("http://localhost:8080/", {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      passwordConfirmation: data.passwordConfirmation,
+      cnp: data.cnp,
+      bloodType: data.bloodType,
+      gender: data.gender,
+      age: data.age,
+    });
+    console.log(responseData.data.patient._id);
+    // auth.login(responseData.data.patient._id);
+    // navigate("/Home");
+    // ne logam dupa ce ne inregistram?
   };
 
   //   return (

@@ -6,13 +6,16 @@ import Button from "../Components/Button";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../Context/auth-context";
+import { useHttpClient } from "../Hooks/http-hook";
 
 function Login() {
   const auth = useContext(AuthContext);
-  
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // setIsLoggedIn(true);
+
+  const { isLoading, isError, sendRequest, clearError } = useHttpClient();
 
   const navigate = useNavigate();
 
@@ -26,19 +29,18 @@ function Login() {
     password: Yup.string().required(),
   });
 
-  const onSubmit = (data) => {
-    const responseData = axios
-      .post("http://localhost:8080/login", {
+  const onSubmit = async (data) => {
+    // console.log(data);
+    try {
+      const responseData = await axios.post("http://localhost:8080/login", {
         email: data.email,
         password: data.password,
-      })
-      .then(() => {
-        console.log("ok");
-        navigate("/Home");
       });
-    // setIsLoggedIn(responseData.patient.loggedIn);
-    auth.login(responseData.patient.id);
-
+      auth.login(responseData.data.patient._id);
+      console.log(responseData.data.patient._id);
+      // console.log(auth);
+      // navigate("/Home");
+    } catch (err) {}
   };
 
   // return (
@@ -75,7 +77,6 @@ function Login() {
           </Form>
         </Formik>
       )}
-      {/* {isLoggedIn && ()} */}
     </div>
   );
 }

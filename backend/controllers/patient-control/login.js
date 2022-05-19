@@ -15,23 +15,23 @@ const loginPatient = async (req, res, next) => {
       email: email,
     }); //transformarea continutului din baza de date intr-un array de obiecte
 
-    if (!existingPatient) {
-    // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
-      return res.status(401).json("No account found");
-    } //mesaj de eroare , nu se mai executa functia in continuare
+    // if (!existingPatient) {
+    // // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
+    //   return res.status(401).json("No account found");
+    // } //mesaj de eroare , nu se mai executa functia in continuare
   } catch (error) {
     return res.status(500).json("Login has failed!");
   }
 
   try {
-    if (existingPatient.password !== password)
+    if (!existingPatient || existingPatient.password !== password)
       // se verifica daca email-ul introdus exista in baza de date si daca corespunde cu parola
       return res.status(401).json({
-        message: "Wrong password! ",
+        message: "Wrong password! Invalid credentials ",
       }); //mesaj de eroare , nu se mai executa functia in continuare
   } catch (error) {
     return res.status(401).json({
-      error
+      error,
     });
   }
 
@@ -56,14 +56,16 @@ const loginPatient = async (req, res, next) => {
   //   return res.status(500).json("Login failed!")
   // }
   // existingPatient.loggedIn = true;
-  
-    existingPatient.loggedIn = true;
-    await existingPatient.save();
- 
+
+  // existingPatient.loggedIn = true;
+  // await existingPatient.save();
+
+  // line 60,61 ??
+  // incearca fara
 
   res.json({
     message: "Welcome back, " + existingPatient.firstName + "!",
-    patient: existingPatient,
+    patient: existingPatient.toObject({ getters: true }),
     // token: token
   }); // mesaj in caz de succes
 };
