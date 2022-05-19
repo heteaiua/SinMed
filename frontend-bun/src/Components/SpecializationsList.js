@@ -20,7 +20,7 @@ const SpecializationsList = (props) => {
         return (
           <SpecializationItem
             key={specialization.id}
-            id={specialization.id}
+            id={specialization._id}
             name={specialization.name}
             image={specialization.image}
             //add description

@@ -87,7 +87,7 @@ p {
   -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-image: url("C:\Users\ale_a\Desktop\SinMed\SinMed\frontend-bun\public\staff.jpg");
+  background-image: url("../../public/staff.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -100,7 +100,7 @@ p {
   -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-image: url("C:\Users\ale_a\Desktop\SinMed\SinMed\frontend-bun\public\about_us.jpg");
+  background-image: url("../../public/about_us.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -114,7 +114,7 @@ p {
   -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  background-image: url("C:\Users\ale_a\Desktop\SinMed\SinMed\frontend-bun\public\vision.jpg");
+  background-image: url("../../public/vision.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
