@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Title from "./Components/Title";
@@ -9,7 +10,6 @@ import Home from "./Pages/Home";
 import Specializations from "./Pages/Specializations";
 import Doctors from "./Pages/Doctors";
 import NewAppointment from "./Components/NewAppointment";
-
 import Appointments from "./Pages/Appointments";
 import Contact from "./Pages/Contact";
 import AboutUs from "./Pages/AboutUs";
@@ -37,7 +37,7 @@ function App() {
   let routes;
 
   if (isLoggedIn) {
-    routes = (
+  routes = (
       <Routes>
         <Route path="/Home" element={<Home />} />
         <Route path="/Specializations" element={<Specializations />} />
@@ -82,7 +82,6 @@ function App() {
   // );
   return (
     <div className="App">
-
       <AuthContext.Provider
         value={{
           isLoggedIn: isLoggedIn,
@@ -110,11 +109,12 @@ function App() {
             <Route path="/Appointments" element={<Appointments />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/About_Us" element={<AboutUs />} />
+            <Route path="/Prices" element={<Prices />} />
           </Routes>
         </Router>
       </AuthContext.Provider>
 
-      <Router>
+      {/* <Router>
         <Sidebar />
         <Routes>
           <Route path="/Home" element={<Home />} />
@@ -126,9 +126,8 @@ function App() {
           <Route path="/Appointments" element={<Appointments />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/About_Us" element={<AboutUs />} />
-          <Route path="/Prices" element={<Prices />} />
         </Routes>
-      </Router>
+      </Router> */}
     </div>
   );
 }
