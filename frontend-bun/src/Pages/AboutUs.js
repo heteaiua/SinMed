@@ -13,9 +13,8 @@ const AboutUs = (props) => {
 
       <div class="center">
         <div class="property-card">
-          <a href="#">
-            <div class="property-image"></div>
-          </a>
+          <div class="property-image"></div>
+
           <div class="property-description">
             <h5> Valorile noastre </h5>
             <p>Siguranța pacienților</p>
@@ -24,15 +23,13 @@ const AboutUs = (props) => {
             <p>Profesionalism </p>
             <p>Pasiune pentru inovație</p>
           </div>
-          <a href="#">
-            <div class="property-social-icons"></div>
-          </a>
+
+          <div class="property-social-icons"></div>
         </div>
 
         <div class="property-card1">
-          <a href="#">
-            <div class="property-image1"></div>
-          </a>
+          <div class="property-image1"></div>
+
           <div class="property-description1">
             <h5> Misiunea noastra </h5>
             <p>
@@ -44,9 +41,8 @@ const AboutUs = (props) => {
         </div>
 
         <div class="property-card2">
-          <a href="#">
-            <div class="property-image2"></div>
-          </a>
+          <div class="property-image2"></div>
+
           <div class="property-description2">
             <h5> Viziunea noastra </h5>
             <p>
