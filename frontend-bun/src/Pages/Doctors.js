@@ -17,9 +17,6 @@ const Doctors = () => {
         const responseData = await sendRequest(
           `http://localhost:8080/doctors/`
         );
-        // console.log(responseData.doctors);
-        // console.log(doctorId);
-        console.log(specializationId);
         setLoadedDoctors(responseData.doctors);
       } catch (err) {}
     };
