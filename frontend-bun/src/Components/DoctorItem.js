@@ -79,20 +79,6 @@ const DoctorItem = (props) => {
           > */}
           {/* lasam afara modalul, ne bagam in el */}
           <h1>Please leave a number as a review.</h1>
-          <Formik>
-            <Form>
-              <div>
-                {/* <Field id="rating" name="rating" /> */}
-                <input id="rating" name="rating" />
-                {auth.isLoggedIn && (
-                  <Button type="submit" onClick={someFunction}>
-                    Recenzie!!!
-                  </Button>
-                )}
-              </div>
-            </Form>
-          </Formik>
-          {/* </Modal> */}
         </Card>
       </li>
     </React.Fragment>

@@ -14,6 +14,7 @@ import AboutUs from "./Pages/AboutUs";
 import AuthContext from "./Context/auth-context";
 import DoctorsListBySpecialization from "./Pages/DoctorsListBySpecialization";
 import Prices from "./Pages/Prices";
+import DoctorReview from "./Components/DoctorReview";
 
 function App() {
   const auth = useContext(AuthContext);
@@ -54,9 +55,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route
-              path="/Appointments/:doctorId"
+              path="/Appointments/:did"
               element={<NewAppointment />}
             />
+            <Route path="/doctors/rating" element={<DoctorReview />} />
             <Route path="/Appointments" element={<Appointments />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/About_Us" element={<AboutUs />} />

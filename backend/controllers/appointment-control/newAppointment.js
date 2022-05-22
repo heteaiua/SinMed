@@ -11,8 +11,11 @@ const Appointment = require("../../models/appointment");
 const createAppointment = async (req, res, next) => {
   const idPatient = req.params.pid;
   const idDoctor = req.params.did;
+  // console.log(req.params)
+  const dateStart = req.body.dateStart;
+  const dateEnd = req.body.dateEnd;
 
-  const { dateStart, dateEnd } = req.body;
+  console.log(dateStart + "sex");
 
   let createdAppointment;
   try {
@@ -40,32 +43,34 @@ const createAppointment = async (req, res, next) => {
     }
 
     if (dateStart > dateEnd)
-      return res.json({
+      return dateEnd.json({
         message: " Invalid dates",
       });
 
-    const appointments = await Appointment.find().exec();
-    if (
-      appointments.every(
-        (a) =>
-          (dateStart > a.dateStart && dateStart < a.dateEnd) ||
-          (dateEnd > a.dateStart && dateEnd < a.dateEnd)
-      )
-    )
-    return res.json({
-      message: " Doctor is busy!",
-    });
-
+    // const appointments = await Appointment.find().exec();
+    // if (
+    //   appointments.every(
+    //     (a) =>
+    //       (dateStart > a.dateStart && dateStart < a.dateEnd) ||
+    //       (dateEnd > a.dateEnd && dateEnd < a.dateEnd)
+    //   )
+    // ) {
+    //   return res.json({
+    //     message: " Doctor is busy!",
+    //   });
+    // }
+    // console.log(dateStart.toString());
+    // console.log(dateEnd);
     createdAppointment = new Appointment({
       idPatient,
       idDoctor,
       dateStart,
       dateEnd,
     });
-    console.log(createdAppointment);
+    console.log("aaa " + createdAppointment);
     await createdAppointment.save();
   } catch (err) {
-    res.status(500).json(err+"     Registration has failed!");
+    res.status(500).json(err + "     Registration has failed!");
   }
 
   try {
@@ -74,12 +79,26 @@ const createAppointment = async (req, res, next) => {
     let patient = patients.filter((p) => {
       return p.id === idPatient;
     });
-    console.log(patient);
+    // console.log(patient);
     patient[0].appointments.push(createdAppointment.id);
-    console.log(patient);
+    // console.log(patient)
     await patient[0].save();
   } catch (err) {
     res.status(500).json("Id push has failed!");
+  }
+
+  try {
+    const doctors = await Doctor.find().exec();
+
+    let doctor = doctors.filter((d) => {
+      return d.id === idDoctor;
+    });
+    // console.log(patient);
+    doctor[0].appointments.push(createdAppointment.id);
+    // console.log(patient)
+    await doctor[0].save();
+  } catch (err) {
+    res.status(500).json("DOCTOR MUIE BRENCIU Id push has failed!");
   }
 
   res.json({
