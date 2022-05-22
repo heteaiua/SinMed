@@ -61,7 +61,7 @@ function Login() {
   //   </form>
   // );
   return (
-    <div>
+    <div className="center">
       {!isLoggedIn && (
         <Formik
           initialValues={initialValues}

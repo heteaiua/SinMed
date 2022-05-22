@@ -101,7 +101,7 @@ function Register() {
   // }
 
   return (
-    <div>
+    <div className="center">
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
