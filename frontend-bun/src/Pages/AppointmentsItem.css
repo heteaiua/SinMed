@@ -1,0 +1,62 @@
+.appointment-item {
+    margin: 2rem;
+    /* width: calc(45% - 2rem);
+    min-width: 17.5rem; */
+    width: 25%;
+    height: 100rem;
+  }
+  
+  .appointment-item a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    padding: 1rem;
+    color: #ff0055;
+    background: #292929;
+  }
+  
+  .appointment-item a:hover,
+  .appointment-item a:active {
+    background: #ffd900;
+  }
+  
+  .appointment-item__content {
+    padding: 1rem;
+    background-color: skyblue;
+  }
+  
+  .appointment-item__rating{
+    color: #ff0055;
+  }
+  
+  .appointment-item__image {
+    width: 3rem;
+    height: 3rem;
+    /* margin-left: 50%; */
+    /* display: flex; */
+    padding: 3rem;
+  }
+  
+  .appointment-item__description {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: normal;
+    color: #ff0055;
+  }
+  
+  .appointment-item__name {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+    font-weight: normal;
+    color: #ff0055;
+  }
+  
+  .appointment-item:hover h2,
+  .appointment-item:active h2,
+  .appointment-item:hover h3,
+  .appointment-item:active h3 {
+    color: #000;
+  }

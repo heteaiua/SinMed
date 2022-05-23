@@ -3,31 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Card from "../GeneralComponents/Card";
 import Avatar from "../GeneralComponents/Avatar";
-import Button from "./Button";
-import Modal from "./Modal";
-import "./DoctorItem.css";
+import Button from "../Components/Button";
+// import Modal from "./Modal";
+import "./AppointmentsItem.css";
 import axios from "axios";
 import { Field, Formik, Form } from "formik";
 import AuthContext from "../Context/auth-context";
 
-const DoctorItem = (props) => {
+const AppointmentItem = (props) => {
   const auth = useContext(AuthContext);
+
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
-
-  // const initialValues = {
-  //   rating: "",
-  // };
-
-  // const onSubmit = (data) => {
-  //   axios
-  //     .post(`http://localhost:8080/doctors/rating/${props.id}`, {
-  //       rating: data.rating,
-  //     })
-  //     .then(() => {
-  //       navigate("/Doctors");
-  //     });
-  // };
 
   const openModalHandler = () => {
     setShowModal(true);
@@ -37,29 +24,27 @@ const DoctorItem = (props) => {
     setShowModal(false);
   };
 
-  // function someFunction(e) {
-  //   // e.preventDefault();
-  //   closeModalHandler();
-  //   onSubmit();
-  //   // window.location.reload(false);
-  // }
-
   return (
     <React.Fragment>
-      <li className="doctor-item">
-        <Card className="doctor-item__content">
+      <li className="appointment-item">
+        <Card className="appointment-item__content">
           {/* <Link to={`/${props.id}/doctors`} /> */}
-          <div className="doctor-item__name">
+          <h2>ACESTA ESTE O PROGRAMARE</h2>
+          <div>{props.idPatient}</div>
+          <div>{props.idDoctor}</div>
+          <div>{props.dateStart}</div>
+          <div>{props.dateEnd}</div>
+          <div className="appointment-item__name">
             <h2>{props.name}</h2>
           </div>
-          <div className="doctor-item__image">
+          <div className="appointment-item__image">
             <Avatar image={props.image} alt={props.name} />
             {/* add image to doctor field */}
           </div>
           <div className="doctor-item__rating">
             <h3>{props.rating}</h3>
           </div>
-          <Button to={`/Appointments/${props.id}`}>Programare</Button>
+          {/* <Button to={`/Appointments/${props.id}`}>Programare</Button> */}
           {/* butonul de Recenzie dispare daca nu e logat pacientul */}
           {/* {auth.isLoggedIn && (
             <Modal show={showModal} onCancel={closeModalHandler}>
@@ -69,15 +54,15 @@ const DoctorItem = (props) => {
             </Modal>
           )} */}
           {/* lasam afara modalul, ne bagam in el */}
-          {auth.isLoggedIn && (
+          {/* {auth.isLoggedIn && (
             <Button danger onClick={openModalHandler}>
               Recenzie
             </Button>
-          )}
+          )} */}
         </Card>
       </li>
     </React.Fragment>
   );
 };
 
-export default DoctorItem;
+export default AppointmentItem;

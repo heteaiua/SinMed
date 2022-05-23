@@ -12,6 +12,6 @@ router.post("/", createDoctor);
 router.get("/", getAllDoctors);
 router.get("/:did", getDoctorById); //nu se foloseste
 router.get("/specializations/:sid", getDoctorBySpecializationId);
-router.post("/rating/:did", reviewDoctor);
+router.patch("/rating/:did", reviewDoctor);
 
 module.exports = router;

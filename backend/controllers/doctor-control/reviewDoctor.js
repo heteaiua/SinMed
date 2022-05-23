@@ -2,8 +2,8 @@ const Doctor = require("../../models/doctor");
 
 const reviewDoctor = async (req, res, next) => {
   const doctorId = req.params.did;
-  const  {rating} = req.body;
-  console.log(rating + "aa");
+  const { rating } = req.body;
+  // console.log(rating + "aa");
   let doctor;
   try {
     doctor = await Doctor.findById(doctorId);
@@ -11,9 +11,9 @@ const reviewDoctor = async (req, res, next) => {
       return res.status(500).json({
         message: " No doctor found!",
       });
-   // console.log(rating + "aa");
+    // console.log(rating + "aa");
     doctor.rating.push(rating);
-  console.log(rating + "bb");
+    // console.log(rating + "bb");
 
     await doctor.save();
   } catch (err) {

@@ -1,51 +1,33 @@
-import React, { Fragment, useState, useEffect } from "react";
-import {
-  TimePicker,
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker
-} from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
+import React, { useContext, useEffect, useState } from "react";
 
-function Appointments() {
-  const [selectedTime, setTime] = useState(new Date());
-  const [selectedDate, handleDateChange] = useState(new Date());
+import AppointmentsList from "./AppointmentsList";
+import { useHttpClient } from "../Hooks/http-hook";
+import { useParams } from "react-router-dom";
+import AuthContext from "../Context/auth-context";
 
-  const handleTimeChange = (val) => {
-    const hours = new Date(val).getHours();
-    const minutes = new Date(val).getMinutes();
-    const seconds = new Date(val).getSeconds();
-    console.log(`${hours}:${minutes}:${seconds}`);
-    setTime(val);
-  };
+const Appointments = () => {
+  const { isLoading, isError, sendRequest, clearError } = useHttpClient();
+  // const doctorId  = useParams().doctorId;
+  // const  specializationId = useParams().specializationId;
+  const auth = useContext(AuthContext);
 
-  return (
-    <Fragment>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardDatePicker
-          clearable
-          inputVariant="outlined"
-          value={selectedDate}
-          placeholder="10/10/2018"
-          onChange={(date) => handleDateChange(date)}
-          minDate={new Date()}
-          format="MM/dd/yyyy"
-          label="Set Date"
-        />
-        <br />
-        <br />
-        <br />
-        <TimePicker
-          ampm={false}
-          openTo="hours"
-          views={["hours", "minutes", "seconds"]}
-          format="HH:mm:ss"
-          label="Set Hours,min,sec"
-          value={selectedTime}
-          onChange={handleTimeChange}
-        />
-      </MuiPickersUtilsProvider>
-    </Fragment>
-  );
-}
+  const [loadedAppointments, setLoadedAppointments] = useState();
+
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:8080/appointments/${auth.patientId}`
+        );
+        setLoadedAppointments(responseData.userAppointments);
+        // console.log(loadedAppointments);
+        console.log(responseData);
+      } catch (err) {}
+    };
+    fetchDoctors();
+  }, [sendRequest]);
+
+  return <div>{loadedAppointments && <AppointmentsList items={loadedAppointments} />}</div>;
+};
 
 export default Appointments;

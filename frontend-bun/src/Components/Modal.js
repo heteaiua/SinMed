@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
@@ -9,22 +9,27 @@ import axios from "axios";
 import { Formik, Form, Field } from "formik";
 
 import Button from "./Button";
+import AuthContext from "../Context/auth-context";
 
 const ModalOverlay = (props) => {
+  const auth = useContext(AuthContext);
+
   const navigate = useNavigate();
 
-  const initialValues={
-    rating:""
-  }
-  
-  const onSubmit = (data) => {
-    axios
-      .patch(`http://localhost:8080/doctors/rating/${props.doctorId}`, {
+  const initialValues = {
+    rating: "",
+  };
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    const responseData = await axios.patch(
+      `http://localhost:8080/doctors/rating/${props.doctorId}`,
+      {
         rating: data.rating,
-      })
-      .then(() => {
-        navigate("/Doctors");
-      });
+      }
+    );
+    // navigate("/Doctors");
+    console.log(responseData.data);
   };
 
   const content = (
@@ -32,22 +37,24 @@ const ModalOverlay = (props) => {
       <header className={`modal__header ${props.headerClass}`}>
         <h2>{props.header}</h2>
       </header>
-      
+
       <div className={`modal__content ${props.contentClass}`}>
-          {props.children}
+        {props.children}
       </div>
       <footer className={`modal__footer ${props.footerClass}`}>
-        <Formik
-          initialValues={initialValues}
-          // validationSchema={validationSchema}
-          onSubmit={onSubmit}
-        >
-          <Form className="...">
-            <label>Rating:</label>
-            <Field id="rating" name="rating" />
-            <Button type="submit">Recenzeaza</Button>
-          </Form>
-        </Formik>
+        {auth.isLoggedIn && (
+          <Formik
+            initialValues={initialValues}
+            // validationSchema={validationSchema}
+            onSubmit={onSubmit}
+          >
+            <Form className="...">
+              <label>Rating:</label>
+              <Field id="rating" name="rating" />
+              <Button type="submit">Recenzeaza</Button>
+            </Form>
+          </Formik>
+        )}
 
         {props.footer}
       </footer>
