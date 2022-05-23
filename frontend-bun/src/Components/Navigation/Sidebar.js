@@ -48,15 +48,6 @@ const SidebarWrap = styled.div`
   width: 100%;
 `;
 
-/*const SinmedLink = styled(Link)`
-  color: aqua;
-  font-size: x-large;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-decoration: none;
-  margin: auto;
-  ////////////
-`;*/
-
 const Logo = styled.img`
   margin: 30px;
   max-width: 62px;
@@ -83,6 +74,11 @@ const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+
+  const refreshFunction = (e) => {
+    e.preventDefault();
+    setSidebar(false);
+  }
 
   // console.log(auth.isLoggedIn + "a");
 
@@ -134,13 +130,16 @@ const Sidebar = () => {
                 color: "lightblue",
               }}
             >
-              <Logo src={LogoImg}></Logo>
-              {/* <SinmedLink to ="/Home">SinMed</SinmedLink>*/}
+              
+              <Link to={"/Home"}>
+                <Logo src={LogoImg} onClick={refreshFunction}></Logo>
+              </Link>
+              
             </h1>
           </Nav>
 
           {/* here comes the proper sidebar */}
-          <SidebarNav sidebar={sidebar}>
+          <SidebarNav sidebar={sidebar} onClick={refreshFunction}>
 
             <SidebarWrap>
 
