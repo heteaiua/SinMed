@@ -11,10 +11,7 @@ const reviewDoctor = async (req, res, next) => {
       return res.status(500).json({
         message: " No doctor found!",
       });
-<<<<<<< Updated upstream
    // console.log(rating + "aa");
-=======
->>>>>>> Stashed changes
     doctor.rating.push(rating);
   console.log(rating + "bb");
 
