@@ -43,23 +43,7 @@ function Login() {
     } catch (err) {}
   };
 
-  // return (
-  //   <form className="login" onSubmit={onSubmit} validationSchema={validationSchema}>
-  //   <div className="form-body">
-  //     <div className="email">
-  //       <label className="form__label">Email</label>
-  //       <input className="form__input" />
-  //     </div>
-  //     <div className="password">
-  //       <label className="form__label">Password</label>
-  //       <input className="form__input" />
-  //     </div>
-  //     <div className="form-footer">
-  //       <Button type="submit">Login</Button>
-  //     </div>
-  //   </div>
-  //   </form>
-  // );
+
   return (
     <div className="center">
       {!isLoggedIn && (

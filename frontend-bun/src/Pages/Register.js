@@ -57,48 +57,6 @@ function Register() {
     // ne logam dupa ce ne inregistram?
   };
 
-  //   return (
-  //     <form className="register" onSubmit={onSubmit}>
-  //       <div className="form-body">
-  //         <div className="firstName">
-  //           <label className="form__label" >First name</label>
-  //           <input className="form__input" />
-  //         </div>
-  //         <div className="lastName">
-  //           <label className="form__label">Last name</label>
-  //           <input className="form__input" />
-  //         </div>
-  //         <div className="email">
-  //           <label className="form__label">Email</label>
-  //           <input className="form__input" />
-  //         </div>
-  //         <div className="password">
-  //           <label className="form__label">Password</label>
-  //           <input className="form__input" />
-  //         </div>
-  //         <div className="passwordConfirmation">
-  //           <label className="form__label">Password confirmation</label>
-  //           <input className="form__input" />
-  //         </div>
-  //         <div className="age">
-  //           <label className="form__label">Age</label>
-  //           <input className="form__input" />
-  //         </div>
-  //         <div className="gender">
-  //           <label className="form__label">Gender</label>
-  //           <input className="form__input" />
-  //         </div>
-  //         <div className="bloodType">
-  //           <label className="form__label">Blood type</label>
-  //           <input className="form__input" />
-  //         </div>
-  //       </div>
-  //       <div className="form-footer">
-  //         <Button type="submit">Register</Button>
-  //       </div>
-  //     </form>
-  //   );
-  // }
 
   return (
     <div className="center">
