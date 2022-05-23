@@ -15,6 +15,7 @@ const DoctorItem = (props) => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
 
+<<<<<<< Updated upstream
   // const initialValues = {
   //   rating: "",
   // };
@@ -29,6 +30,8 @@ const DoctorItem = (props) => {
       });
   };
 
+=======
+>>>>>>> Stashed changes
   const openModalHandler = () => {
     setShowModal(true);
   };
@@ -37,6 +40,7 @@ const DoctorItem = (props) => {
     setShowModal(false);
   };
 
+<<<<<<< Updated upstream
   function someFunction(e) {
     // e.preventDefault();
     closeModalHandler();
@@ -44,6 +48,8 @@ const DoctorItem = (props) => {
     // window.location.reload(false);
   }
 
+=======
+>>>>>>> Stashed changes
   return (
     <React.Fragment>
       <li className="doctor-item">
@@ -60,6 +66,7 @@ const DoctorItem = (props) => {
             <h3>{props.rating}</h3>
           </div>
           <Button to={`/Appointments/${props.id}`}>Programare</Button>
+<<<<<<< Updated upstream
           {/* butonul de Recenzie dispare daca nu e logat pacientul */}
           {auth.isLoggedIn && (
             <Button inverse onClick={openModalHandler}>
@@ -79,6 +86,27 @@ const DoctorItem = (props) => {
           > */}
           {/* lasam afara modalul, ne bagam in el */}
           <h1>Please leave a number as a review.</h1>
+=======
+          <Button inverse onClick={openModalHandler}>
+            Recenzie
+          </Button>
+
+          <Modal
+            show={showModal}
+            onCancel={closeModalHandler}
+            doctorId={props.id}
+            footer={
+              <React.Fragment>
+                <Button inverse onClick={closeModalHandler}>
+                  Close
+                </Button>
+              </React.Fragment>
+            }
+          >
+            <h1>Please leave a number as a review.</h1>
+            
+          </Modal>
+>>>>>>> Stashed changes
         </Card>
       </li>
     </React.Fragment>
