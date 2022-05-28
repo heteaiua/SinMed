@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+
 import SpecializationsList from "../Components/SpecializationsList";
 import { useHttpClient } from "../Hooks/http-hook";
+import "./Specializations.css";
 
 const Specializations = () => {
   const { isLoading, isError, sendRequest, clearError } = useHttpClient();
@@ -20,7 +22,7 @@ const Specializations = () => {
     fetchSpecializations();
   }, [sendRequest]);
   return (
-    <div>
+    <div className="spec">
       {loadedSpecializations && (
         <SpecializationsList items={loadedSpecializations} />
       )}

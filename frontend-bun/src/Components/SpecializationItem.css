@@ -4,6 +4,7 @@
     min-width: 17.5rem; */
     width: 25%;
     height: 100rem;
+  
   }
   
   .specialization-item a {
@@ -13,13 +14,13 @@
     height: 100%;
     text-decoration: none;
     padding: 1rem;
-    color: #ff0055;
-    background: #292929;
+    color: #ffffff;
+    background: #240c40b2;
   }
   
   .specialization-item a:hover,
   .specialization-item a:active {
-    background: #ffd900;
+    background: #21924977;
   }
   
   .specialization-item__content {
@@ -39,7 +40,7 @@
     font-size: 1rem;
     margin: 0 0 0.5rem 0;
     font-weight: normal;
-    color: #ff0055;
+    color: #00a176;
   }
   
   .specialization-item__name {
@@ -47,7 +48,7 @@
     margin: 0 0 0.5rem 0;
     text-align: center;
     font-weight: normal;
-    color: #ff0055;
+    color: #2c7570;
   }
   
   .specialization-item:hover h2,
