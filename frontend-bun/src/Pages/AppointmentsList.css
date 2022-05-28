@@ -1,4 +1,8 @@
 .appointments-list {
+  background-image: url("../assets/backg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
     list-style: none;
     margin: 0 auto;
     padding: 0;
