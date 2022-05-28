@@ -13,13 +13,13 @@
   height: 100%;
   text-decoration: none;
   padding: 1rem;
-  color: #ff0055;
+  color: #ffffff;
   background: #292929;
 }
 
 .doctor-item a:hover,
 .doctor-item a:active {
-  background: #ffd900;
+  background: #21924977;
 }
 
 .doctor-item__content {
@@ -28,7 +28,7 @@
 }
 
 .doctor-item__rating{
-  color: #ff0055;
+  color: #479c49;
 }
 
 .doctor-item__image {
@@ -43,7 +43,7 @@
   font-size: 1rem;
   margin: 0 0 0.5rem 0;
   font-weight: normal;
-  color: #ff0055;
+  color: #00a176;
 }
 
 .doctor-item__name {
@@ -51,7 +51,7 @@
   margin: 0 0 0.5rem 0;
   text-align: center;
   font-weight: normal;
-  color: #ff0055;
+  color: #2c7570;
 }
 
 .doctor-item:hover h2,

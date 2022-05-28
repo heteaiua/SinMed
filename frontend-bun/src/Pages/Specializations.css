@@ -1,0 +1,12 @@
+/*.spec{
+    margin: 0;
+    background-image:url('../assets/photos/img3.jpg') ;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+.spec{
+font-size: medium;    
+}
