@@ -24,11 +24,17 @@ const AppointmentItem = (props) => {
     setShowModal(false);
   };
 
+  const deleteHandler = async () => {
+    try {
+      await axios.delete(`http://localhost:8080/appointments/${props.id}`);
+    } catch (err) {}
+  };
+
   return (
     <React.Fragment>
       <li className="appointment-item">
         <Card className="appointment-item__content">
-          {/* <Link to={`/${props.id}/doctors`} /> */}
+          <Link to={`/${props.id}`} />
           <h2>ACESTA ESTE O PROGRAMARE</h2>
           <div>{props.idPatient}</div>
           <div>{props.idDoctor}</div>
@@ -44,6 +50,7 @@ const AppointmentItem = (props) => {
           <div className="doctor-item__rating">
             <h3>{props.rating}</h3>
           </div>
+          <Button onClick={deleteHandler}>DELETE</Button>
           {/* <Button to={`/Appointments/${props.id}`}>Programare</Button> */}
           {/* butonul de Recenzie dispare daca nu e logat pacientul */}
           {/* {auth.isLoggedIn && (

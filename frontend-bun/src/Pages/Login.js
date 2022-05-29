@@ -30,7 +30,6 @@ function Login() {
   });
 
   const onSubmit = async (data) => {
-    // console.log(data);
     try {
       const responseData = await axios.post("http://localhost:8080/login", {
         email: data.email,
@@ -38,8 +37,7 @@ function Login() {
       });
       auth.login(responseData.data.patient._id);
       console.log(responseData.data.patient._id);
-      // console.log(auth);
-      // navigate("/Home");
+      navigate("/Home");
     } catch (err) {}
   };
 
