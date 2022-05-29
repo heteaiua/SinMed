@@ -15,7 +15,6 @@ const createAppointment = async (req, res, next) => {
   const dateStart = req.body.dateStart;
   const dateEnd = req.body.dateEnd;
 
-  console.log(dateStart + "sex");
 
   let createdAppointment;
   try {
@@ -98,7 +97,7 @@ const createAppointment = async (req, res, next) => {
     // console.log(patient)
     await doctor[0].save();
   } catch (err) {
-    res.status(500).json("DOCTOR MUIE BRENCIU Id push has failed!");
+    res.status(500).json("Id push has failed!");
   }
 
   res.json({
