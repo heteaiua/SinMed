@@ -46,6 +46,7 @@ function Login() {
 
   return (
     <div className="center">
+      <div className="block">
       <h1>Login</h1>
       {!isLoggedIn && (
         <Formik
@@ -62,6 +63,7 @@ function Login() {
           </Form>
         </Formik>
       )}
+      </div>
     </div>
   );
 }

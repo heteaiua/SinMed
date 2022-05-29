@@ -6,6 +6,19 @@
     padding: 20px;
     /* height: 600px; */
 }
+.block{
+    max-width: 350px;
+    margin: 0 10px 20px;
+    border-radius: 4px;
+    background-color: rgba(241, 241, 241, 0.74);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 20%;
+    padding-left: 7%;
+    padding-right: 7%;
+   
+  }
 
 .form-body{
     text-align: left;
