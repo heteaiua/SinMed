@@ -37,7 +37,7 @@ function Login() {
       });
       auth.login(responseData.data.patient._id);
       console.log(responseData.data.patient._id);
-      navigate("/Home");
+      navigate("/");
     } catch (err) {}
   };
 

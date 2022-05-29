@@ -131,7 +131,7 @@ const Sidebar = () => {
               }}
             >
               
-              <Link to={"/Home"}>
+              <Link to={"/"}>
                 <Logo src={LogoImg} onClick={refreshFunction}></Logo>
               </Link>
               
