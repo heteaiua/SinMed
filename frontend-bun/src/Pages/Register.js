@@ -52,9 +52,7 @@ function Register() {
       age: data.age,
     });
     console.log(responseData.data.patient._id);
-    // auth.login(responseData.data.patient._id);
-    // navigate("/Home");
-    // ne logam dupa ce ne inregistram?
+    navigate("/login");
   };
 
 
