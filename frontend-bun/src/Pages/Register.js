@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Button from "../Components/Button";
-// import './Register.css';
+import './Register.css';
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -60,6 +60,7 @@ function Register() {
 
   return (
     <div className="center">
+      <div className="block">
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -118,6 +119,7 @@ function Register() {
           <Button type="submit">Register</Button>
         </Form>
       </Formik>
+      </div>
     </div>
   );
 }

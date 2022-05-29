@@ -8,7 +8,7 @@
     /* height: 600px; */
 }
 
-.center{
+/*.center{
     max-width: 350px;
     margin: 0 auto 20px;
     border-radius: 4px;
@@ -24,6 +24,26 @@
     margin-bottom: auto;
     font: bold;
     font-family: Arial, Helvetica, sans-serif;
+}*/
+.block{
+    max-width: 350px;
+    margin: 0 auto 20px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.74);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 8%;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+.block h1{
+    color: rgb(35, 57, 93);
+    margin-bottom: auto;
+    font: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 .form-body__login{
